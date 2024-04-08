@@ -3,6 +3,6 @@ const dotenv = require('dotenv').config();
 const port =8000;
 
 const app = express();
-app.listen(port, () => console.log(`Server up. Listening on ${port}`));
+app.listen(port, () => console.log(`Server up. Listening on port: ${port}`));
 
-//console.log("Node server is up!");  
+//console.log("Node server is up!");
