@@ -7,7 +7,10 @@ const app = express();
 //console.log("Node server is up!");
 app.listen(port, () => console.log(`Server up. Listening on port: ${port}`));
 
+/*
 app.get('/api/categories',(req, res) => {
     //res.send('Get All Categories');
     res.status(200).json({message: 'Get All Categories'});
 })
+*/
+app.use('/api/categories', require('./routes/categoryRoutes'));
