@@ -1,7 +1,10 @@
 const asyncHandler = require('express-async-handler')
+const Category = require('../models/categoryModel')
 
 const getCategory = asyncHandler(async (req, res) => {
-    res.status(200).json({message: 'Code to get all Categories'});
+    // res.status(200).json({message: 'Code to get all Categories'});
+    const categories = await Category.find()
+    res.status(200).json(categories);
 })
 
 const createCategory = asyncHandler(async (req,res) => {
