@@ -18,7 +18,7 @@ app.get('/api/categories',(req, res) => {
     res.status(200).json({message: 'Get All Categories'});
 })
 */
-app.use('/api/category', require('./routes/categoryRoutes'));
+app.use('/api/category', require('./routes/categoryRoute'));
 app.use('/api/users', require('./routes/userRoute'));
 app.use('/api/equipment', require('./routes/equipmentRoute'));
 

@@ -17,7 +17,10 @@ const createCategory = asyncHandler(async (req,res) => {
         throw new Error('Please enter Category Name..');
     }
     //res.status(200).json({message: 'Code to create a new Category'});
-    const newCat = await Category.create({name : req.body.name});
+    const newCat = await Category.create({
+        name : req.body.name,
+        description : req.body.description
+    });
     res.status(200).json(newCat);
 })
 
