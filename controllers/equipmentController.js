@@ -60,7 +60,7 @@ const deleteEquip = asyncHandler(async (req,res) => {
         res.status(400)
         throw new Error('Equipment not found')
     }
-    await Category.findByIdAndDelete(req.params.id)
+    await Equipment.findByIdAndDelete(req.params.id)
     res.status(200).json({id: req.params.id})
 })
 
