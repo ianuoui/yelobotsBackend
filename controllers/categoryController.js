@@ -23,12 +23,27 @@ const createCategory = asyncHandler(async (req,res) => {
 
 //PUT
 const updateCategory = asyncHandler(async (req,res) => {
-    res.status(200).json({message: `Code to update a Category : ${req.params.id}`});
+    //res.status(200).json({message: `Code to update a Category : ${req.params.id}`});
+    const upCat = await Category.findById(req.params.id);
+    if(!upCat){
+        res.status(400);
+        throw new Error('Category not found.');
+    }
+
+    const updCategory = await Category.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.status(200).json(updCategory);
 })
 
 //DELETE
 const deleteCategory = asyncHandler(async (req,res) => {
-    res.status(200).json({message: `Code to delete a Category : ${req.params.id}`});
+    //res.status(200).json({message: `Code to delete a Category : ${req.params.id}`});
+    const delCat = await Category.findById(req.params.id)
+    if(!delCat){
+        res.status(400)
+        throw new Error('Category not found')
+    }
+    await Category.findByIdAndDelete(req.params.id)
+    res.status(200).json({id: req.params.id})
 })
 
 module.exports = { getCategory, createCategory, updateCategory, deleteCategory};
