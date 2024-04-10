@@ -8,4 +8,4 @@ router.post('/', createEquip)
 router.put('/:id', updateEquip)
 router.delete('/:id', deleteEquip)
 
-module.exports = router;    
+module.exports = router
