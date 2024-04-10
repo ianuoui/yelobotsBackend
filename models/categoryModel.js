@@ -1,9 +1,13 @@
+const { text } = require('express')
 const mongoose = require('mongoose')
 
 const categorySchema = mongoose.Schema(
     {    
-        text: { type: String, required: [true, 'Please add a text value']}        
+        name: { type: String, required: [true, 'Please enter the Category Name'] }
     },
+    {
+        description: { type: String }                
+    },     
     {
         timestamps : true
     }
