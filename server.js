@@ -19,6 +19,7 @@ app.get('/api/categories',(req, res) => {
 })
 */
 app.use('/api/category', require('./routes/categoryRoutes'));
+app.use('/api/users', require('./routes/userRoute'));
 
 app.use(errorHandler);
 
