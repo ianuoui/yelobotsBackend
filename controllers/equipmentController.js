@@ -4,8 +4,10 @@ const Equipment = require('../models/equipmentModel')
 //GET
 const getEquip = asyncHandler(async (req, res) => {
     // res.status(200).json({message: 'Code to get all Equipments'});
-    if (req.params.categoryId){
-        const equipByCatId = await Equipment.find({categoryId: req.params.categoryId});
+    console.log(req.body);
+    if (req.body.categoryId){
+        console.log(req.body.categoryId);
+        const equipByCatId = await Equipment.find({categoryId: req.body.categoryId});
             if(!equipByCatId){
                 res.status(400);
                 throw new Error('Category does not have Equipments.');

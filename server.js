@@ -19,8 +19,9 @@ app.get('/api/categories',(req, res) => {
 })
 */
 app.use('/api/category', require('./routes/categoryRoute'));
-app.use('/api/users', require('./routes/userRoute'));
 app.use('/api/equipment', require('./routes/equipmentRoute'));
+app.use('/api/users', require('./routes/userRoute'));
+
 
 app.use(errorHandler);
 
