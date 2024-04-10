@@ -12,15 +12,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-/*
-app.get('/api/categories',(req, res) => {
-    //res.send('Get All Categories');
-    res.status(200).json({message: 'Get All Categories'});
-})
-*/
 app.use('/api/category', require('./routes/categoryRoute'));
 app.use('/api/equipment', require('./routes/equipmentRoute'));
-app.use('/api/users', require('./routes/userRoute'));
+app.use('/api/user', require('./routes/userRoute'));
+app.use('/api/order', require('./routes/orderRoute'));
 
 
 app.use(errorHandler);
