@@ -8,7 +8,8 @@ const getOrder = asyncHandler(async (req,res) => {
 
 //POST
 const createOrder = asyncHandler(async (req,res) => {
-    res.status(200).json({message: 'Code to create an order'});
+    //res.status(200).json({message: 'Code to create an order'});
+    
 })
 
 //PUT

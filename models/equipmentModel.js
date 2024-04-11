@@ -11,7 +11,7 @@ const equipmentSchema = mongoose.Schema(
         name: { 
             type: String,             
             unique: true, 
-            required: [true, 'Please enter the Equipment Name'], 
+            required: [true, 'Please enter the Equipment Name'] 
         },
         description: { 
             type: String, 

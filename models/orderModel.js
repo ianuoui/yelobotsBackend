@@ -5,11 +5,11 @@ const orderSchema = mongoose.Schema(
     {   
         userID: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
+            ref: 'User',
         },
         orderType: { 
             type: String,                          
-            required: [true, 'Please enter the Equipment Name'], 
+            required: [true, 'Please enter the Equipment Name']
         },
         equipments:[
             {
