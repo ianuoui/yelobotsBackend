@@ -4,9 +4,9 @@ const Equipment = require('../models/equipmentModel')
 //GET
 const getEquip = asyncHandler(async (req, res) => {
     // res.status(200).json({message: 'Code to get all Equipments'});
-    console.log(req.body);
+    //console.log(req.body);
     if (req.body.categoryId){
-        console.log(req.body.categoryId);
+        //console.log(req.body.categoryId);
         const equipByCatId = await Equipment.find({categoryId: req.body.categoryId});
             if(!equipByCatId){
                 res.status(400);
