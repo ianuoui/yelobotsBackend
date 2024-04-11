@@ -16,8 +16,7 @@ const orderSchema = mongoose.Schema(
                 equipId: {type: mongoose.Schema.Types.ObjectId,ref: 'Equipment'},
                 name: {type: String},
                 quantity: {type: Number},
-                price:{type: Number},
-                currencyCode: {type: String}, 
+                price:{type: Number},                 
                 startDate: {type: Date},
                 endtDate: {type: Date}
             }
