@@ -23,7 +23,7 @@ const getOrder = asyncHandler(async (req,res) => {
 const createOrder = asyncHandler(async (req,res) => {
     //res.status(200).json({message: 'Code to create an order'});
     //console.log(req.body.userId);     
-    if (!req.body.userId){               
+    if (!req.body.userId){              
         res.status(400);
         throw new Error('Cannot create an Order without an UserId.');
     } else {         
