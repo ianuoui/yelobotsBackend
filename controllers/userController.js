@@ -7,9 +7,9 @@ const bcrypt = require('bcryptjs')
 
 const registerUser = asyncHandler(async (req,res) => {
     //res.json({message: 'Register user successful'})
-    const { name, email, password } = req.body
+    const { name, phone, email, password } = req.body
 
-    if (!name || !email || !password) { 
+    if (!name || !phone || !email || !password) { 
         res.status(400)
         throw new Error('All fields are mandatory')
     }
@@ -23,10 +23,10 @@ const registerUser = asyncHandler(async (req,res) => {
 
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, salt)
-    const user = await User.create({name, email, password:hashedPassword})
+    const user = await User.create({name, phone, email, password:hashedPassword})
 
     if (user){
-        res.status(201).json({ _id: user.id, name: user.name, email: user.email, token: generateJWTtoken(user._id)})    
+        res.status(201).json({ _id: user.id, name: user.name, phone: user.phone, email: user.email, token: generateJWTtoken(user._id)})    
     } else {
         res.status(400)
         throw new Error('Invalid user data')
@@ -39,7 +39,7 @@ const loginUser = asyncHandler(async (req,res) => {
     const user = await User.findOne({ email })    
 
     if (user && (await bcrypt.compare(password, user.password))) {
-        res.json({ _id: user.id, name: user.name, email: user.email, token: generateJWTtoken(user._id) })
+        res.json({ _id: user.id, name: user.name, phone: user.phone, email: user.email, token: generateJWTtoken(user._id) })
     } else {
         res.status(400)
         throw new Error('Invalid data')
