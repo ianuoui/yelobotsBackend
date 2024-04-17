@@ -11,6 +11,12 @@ const categorySchema = mongoose.Schema(
         description: { 
             type: String, 
         },
+        images: [
+            {
+                url: {type: String}, 
+                alt_text: {type: String}
+            }   
+        ],
         filterAttr1: {
             type: String,
         },
