@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs')
 
 const registerUser = asyncHandler(async (req,res) => {
     //res.json({message: 'Register user successful'})
+    //console.log(req.body);
     const { name, phone, email, password } = req.body
 
     if (!name || !phone || !email || !password) { 
@@ -35,6 +36,7 @@ const registerUser = asyncHandler(async (req,res) => {
 
 const loginUser = asyncHandler(async (req,res) => {
     //res.json({message: 'Login user successful'})
+    console.log(req.body);
     const { email, password } = req.body    
     const user = await User.findOne({ email })    
 
@@ -46,9 +48,9 @@ const loginUser = asyncHandler(async (req,res) => {
     } 
 })
 
-const getCurrentUser = asyncHandler(async (req,res) => {
-    //res.json({message: 'Current user data'})
-    const { _id, name, email } = await User.findById(req.user.id) 
+const getCurrentUser = asyncHandler(async (req, res) => {
+    //res.json({message: 'Current user data'})     
+    const { _id, name, email } = await User.findById(req.user.id)
     res.status(200).json({ id: _id, name, email })
 })
 
