@@ -31,8 +31,11 @@ const createEquip = asyncHandler(async (req,res) => {
     //res.status(200).json({message: 'Code to create a new Equipment'});
     const newEquip = await Equipment.create({
         categoryId : req.body.categoryId,
-        name : req.body.name,
-        //price : req.body.price,
+        name : req.body.name,        
+        description: req.body.description,
+        price : req.body.price,
+        images: req.body.images,
+        equipFilterAttr: req.body.equipFilterAttr
         //currencyCode : req.body.currencyCode
     });
     res.status(200).json(newEquip);
