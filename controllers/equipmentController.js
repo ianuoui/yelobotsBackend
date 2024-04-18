@@ -14,6 +14,14 @@ const getEquip = asyncHandler(async (req, res) => {
             } else {
                 res.status(200).json(equipByCatId);                    
             }
+    } if (req.body.id) {
+        const equipById = await Equipment.findById(req.body.id);
+        if(!equipById){
+            res.status(400);
+            throw new Error('Equipment not found.');
+        } else{
+            res.status(200).json(equipById);
+        }
     } else{
         const allEquipments = await Equipment.find()
         res.status(200).json(allEquipments);
