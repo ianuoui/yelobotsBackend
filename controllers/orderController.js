@@ -9,8 +9,7 @@ const getOrder = asyncHandler(async (req,res) => {
         throw new Error('Cannot retrieve orders without an UserId.');
     } else {        
         const ordByUserId = await Order.find({userId: req.body.userId});
-        if(!ordByUserId){
-            console.log('2');
+        if(!ordByUserId){             
             res.status(400);
             throw new Error('No orders found for this UserId.');
         } else {             
@@ -30,7 +29,10 @@ const createOrder = asyncHandler(async (req,res) => {
         const newOrder = await Order.create({
             userId : req.body.userId,
             orderType : req.body.orderType,                        
-            orderTotal : req.body.orderTotal,             
+            orderTotal : req.body.orderTotal,    
+            equipments : req.body.equipments,
+            address : req.body.address,
+            orderTotal : req.body.orderTotal          
         });
         res.status(200).json(newOrder);
     }

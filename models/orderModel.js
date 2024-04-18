@@ -13,10 +13,8 @@ const orderSchema = mongoose.Schema(
         },
         equipments:[
             {
-                equipId: {type: mongoose.Schema.Types.ObjectId,ref: 'Equipment'},
-                name: {type: String},
-                quantity: {type: Number},
-                price:{type: Number},                 
+                equipId: {type: mongoose.Schema.Types.ObjectId,ref: 'Equipment'},                 
+                quantity: {type: Number},                 
                 startDate: {type: Date},
                 endtDate: {type: Date}
             }
