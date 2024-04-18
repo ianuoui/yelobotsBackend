@@ -32,8 +32,8 @@ const createEquip = asyncHandler(async (req,res) => {
     const newEquip = await Equipment.create({
         categoryId : req.body.categoryId,
         name : req.body.name,
-        price : req.body.price,
-        currencyCode : req.body.currencyCode
+        //price : req.body.price,
+        //currencyCode : req.body.currencyCode
     });
     res.status(200).json(newEquip);
 })

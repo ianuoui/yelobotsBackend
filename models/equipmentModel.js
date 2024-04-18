@@ -19,36 +19,21 @@ const equipmentSchema = mongoose.Schema(
         images:[
             {
                 url: {type: String}, 
-                altText: {type: String}
+                altText: {type: String},
+                _id : false 
             }   
         ],
-        equipFilterAttr:[   
+        equipFilterAttr:[
             {
-                filter:{type: String},  
-                filterValues:[
-                    {
-                        filterVal: {type: String}  
-                    }
-                ],
+                filterName:{type: String},  
+                filterValues:[{type: String}],
+                _id: false
             }            
-        ],
-        filterAttr1: {
-            type: String,
-        },
-        filterAttr2: {
-            type: String,
-        },  
-        filterAttr3: {
-            type: String,
-        }, 
-        price: { 
-            type: Number, 
-            required: true,
-        },
-        currencyCode: { 
-            type: String,
-            required: true, 
-        },
+        ],                 
+        price:{            
+                costPerDay: {type:Number, required:true},
+                currencyCode: {type: String, required:true}             
+        }         
     },
     { timestamps: true }
 )
