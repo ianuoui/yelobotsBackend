@@ -16,7 +16,8 @@ const orderSchema = mongoose.Schema(
                 equipId: {type: mongoose.Schema.Types.ObjectId,ref: 'Equipment'},                 
                 quantity: {type: Number},                 
                 startDate: {type: Date},
-                endtDate: {type: Date}
+                endtDate: {type: Date},
+                _id : false 
             }
         ],          
         address:[
@@ -26,7 +27,8 @@ const orderSchema = mongoose.Schema(
                 addLine2: {type: String},
                 city: {type: String},
                 state: {type: String},
-                zip: {type: String}
+                zip: {type: String},
+                _id : false 
             }
         ],
         orderTotal: {
