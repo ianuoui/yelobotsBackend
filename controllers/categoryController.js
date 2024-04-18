@@ -10,17 +10,22 @@ const getCategory = asyncHandler(async (req, res) => {
 
 //POST
 const createCategory = asyncHandler(async (req,res) => {
-    //console.log(req.body);
+    console.log(req.body);
     if(!req.body.name){
         //res.status(400).json({message: 'Please enter Category details...'});
         res.status(400);
         throw new Error('Please enter Category Name..');
     }
+
+    console.log(req.body.catFilterAttr);
     //res.status(200).json({message: 'Code to create a new Category'});
     const newCat = await Category.create({
         name : req.body.name,
-        description : req.body.description
-    });
+        description : req.body.description,
+        images: req.body.images,
+        catFilterAttr: req.body.catFilterAttr,
+        }
+    );
     res.status(200).json(newCat);
 })
 

@@ -14,28 +14,17 @@ const categorySchema = mongoose.Schema(
         images:[
             {
                 url: {type: String}, 
-                altText: {type: String}
+                altText: {type: String},
+                _id : false 
             }   
         ],
         catFilterAttr:[
             {
-                filter:{type: String},  
-                filterValues:[
-                    {
-                        filterVal: {type: String}  
-                    }
-                ],
+                filterName:{type: String},  
+                filterValues:[{type: String}],
+                _id: false
             }            
-        ],
-        filterAttr1: {
-            type: String,
-        },
-        filterAttr2: {
-            type: String,
-        },  
-        filterAttr3: {
-            type: String,
-        }, 
+        ]        
     },
     { timestamps: true}
 )
