@@ -19,8 +19,18 @@ const equipmentSchema = mongoose.Schema(
         images:[
             {
                 url: {type: String}, 
-                alt_text: {type: String}
+                altText: {type: String}
             }   
+        ],
+        equipFilterAttr:[   
+            {
+                filter:{type: String},  
+                filterValues:[
+                    {
+                        filterVal: {type: String}  
+                    }
+                ],
+            }            
         ],
         filterAttr1: {
             type: String,
