@@ -41,6 +41,14 @@ const createOrder = asyncHandler(async (req,res) => {
 //PUT
 const updateOrder = asyncHandler(async (req,res) => {
     res.status(200).json({message: 'Code to update an order'});
+    const upOrd = await Order.findById(req.params.id);
+    if(!upOrd){
+        res.status(400);
+        throw new Error('Order not found.');
+    }
+
+    const updOrder = await Order.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    res.status(200).json(updOrder);
 })
 
 //DELETE
