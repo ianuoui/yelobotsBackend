@@ -40,7 +40,7 @@ const createOrder = asyncHandler(async (req,res) => {
 
 //PUT
 const updateOrder = asyncHandler(async (req,res) => {
-    res.status(200).json({message: 'Code to update an order'});
+    //res.status(200).json({message: 'Code to update an order'});
     const upOrd = await Order.findById(req.params.id);
     if(!upOrd){
         res.status(400);
