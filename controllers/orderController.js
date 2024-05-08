@@ -4,11 +4,11 @@ const Order = require('../models/orderModel')
 //GET
 const getOrder = asyncHandler(async (req,res) => {
     //res.status(200).json({message: 'Code to get all Orders by UserID'});
-    if (!req.body.userId){
+    if (!req.query.userId){
         res.status(400);
         throw new Error('Cannot retrieve orders without an UserId.');
     } else {        
-        const ordByUserId = await Order.find({userId: req.body.userId});
+        const ordByUserId = await Order.find({userId: req.query.userId});
         if(!ordByUserId){             
             res.status(400);
             throw new Error('No orders found for this UserId.');
