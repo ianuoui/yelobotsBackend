@@ -56,10 +56,8 @@ const createOrder = asyncHandler(async (req,res) => {
     };
     
      
-    const rzpayOrder = await razorpay.orders.create(options);     
-    
-    console.log(rzpayOrder);
-
+    const rzpayOrder = await razorpay.orders.create(options);         
+    //console.log(rzpayOrder);
     const newOrder = await Order.create({
         userId : orderUserID,
         orderType : req.body.orderType,                        
