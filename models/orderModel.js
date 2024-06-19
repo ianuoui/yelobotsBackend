@@ -34,7 +34,7 @@ const orderSchema = mongoose.Schema(
         orderTotal: {
             type: Number
         },
-        currencyCode:{
+        currencyCode:{ 
             type: String
         },
         rzpayOrderId: {
