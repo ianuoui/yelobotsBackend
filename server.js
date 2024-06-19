@@ -1,8 +1,7 @@
 const express = require('express');
 const connectDB = require('./connect/database');
 const { errorHandler } = require('./middleware/errorMiddleware');
-const Razorpay = require('razorpay');
-const dotenv = require('dotenv').config();
+//const Razorpay = require('razorpay');
 
 //const port = 8000;
 const port = process.env.PORT || 5000;
