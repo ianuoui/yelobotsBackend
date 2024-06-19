@@ -82,20 +82,17 @@ const paymentCapture = asyncHandler(async (req,res) => {
     const razorpay_signature =  req.headers['x-razorpay-signature'];
     
     let hmac = crypto.createHmac('sha256', process.env.RZPAY_SECRET); 
-
     hmac.update(rzpayOrderId + "|" + rzpayPaymentId);
     
     // Creating the hmac in the required format
     const generated_signature = hmac.digest('hex');
 
     if(razorpay_signature===generated_signature){
-        
         const updateOrder = await Order.findByIdAndUpdate(
             {_id: orderId},
             {rzpayOrderStatus: rzpayOrderStatus},
             {new: true}
         );
-
         res.status(200).json(updateOrder)        
     }
     else{
