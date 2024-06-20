@@ -54,7 +54,6 @@ const createOrder = asyncHandler(async (req,res) => {
         currency: req.body.currencyCode,
         receipt: orderUserID
     };
-    
      
     const rzpayOrder = await razorpay.orders.create(options);         
     //console.log(rzpayOrder);
@@ -71,7 +70,6 @@ const createOrder = asyncHandler(async (req,res) => {
     });
     
     res.status(200).json(newOrder);
-   
 })
 
 //POST : PaymentCapture
@@ -96,8 +94,6 @@ const paymentCapture = asyncHandler(async (req,res) => {
     else{
         res.status(400).json({message:"Payment verification failed"})
     }
-    
-
 })
 
 
