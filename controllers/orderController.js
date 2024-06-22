@@ -88,7 +88,7 @@ const paymentCapture = asyncHandler(async (req,res) => {
     if(razorpay_signature===generated_signature){
         const updateOrder = await Order.findByIdAndUpdate(
             {_id: orderId},
-            {rzpayOrderStatus: rzpayOrderStatus},
+            {rzpayOrderStatus: "Success"},
             {new: true}
         );
         res.status(200).json(updateOrder)        
