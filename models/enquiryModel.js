@@ -19,6 +19,12 @@ const enquirySchema = mongoose.Schema(
             type: String,
             required: [true, 'duration is requried'],
         },
+        startDate: {
+            type: Date,
+        },
+        endtDate: {
+            type: Date,
+        },
         message: {
             type: String,
             required: [true, 'message is required'],
