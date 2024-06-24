@@ -17,8 +17,8 @@ async function getCatName(arrEqipObjs){
 //GET
 const getEquip = asyncHandler(async (req, res) => {
     // res.status(200).json({message: 'Code to get all Equipments'});
-    //console.log(req.body);
-    
+    //console.log(req.body);     
+
     if (req.query.categoryId){
         //console.log(req.body.categoryId);
         const equipByCatId = await Equipment.find({categoryId: req.query.categoryId});
