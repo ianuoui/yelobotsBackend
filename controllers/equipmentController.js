@@ -1,30 +1,52 @@
 const asyncHandler = require('express-async-handler')
 const Equipment = require('../models/equipmentModel')
+const Category = require('../models/categoryModel')
+
+
+async function getCatName(arrEqipObjs){
+   // console.log(arrEqipObjs);          
+    for(let i=0;i<arrEqipObjs.length;i++){                        
+        var tmpArrEquipObj = arrEqipObjs[i].toObject();
+        tmpArrEquipObj.categoryName = (await Category.findById(arrEqipObjs[i].categoryId)).name;
+        arrEqipObjs[i] = tmpArrEquipObj;                 
+    }     
+    return arrEqipObjs;
+}
+
 
 //GET
 const getEquip = asyncHandler(async (req, res) => {
     // res.status(200).json({message: 'Code to get all Equipments'});
     //console.log(req.body);
+    
     if (req.query.categoryId){
         //console.log(req.body.categoryId);
         const equipByCatId = await Equipment.find({categoryId: req.query.categoryId});
+        //console.log(equipByCatId);
             if(!equipByCatId){
                 res.status(400);
                 throw new Error('Category does not have Equipments.');
             } else {
-                res.status(200).json(equipByCatId);                    
+                //res.status(200).json(equipByCatId);                    
+                var updAllEquipbyCatID = await getCatName(equipByCatId);        
+                res.status(200).json(updAllEquipbyCatID);
             }
-    } if (req.query.id) {
+    } else if (req.query.id) {
         const equipById = await Equipment.findById(req.query.id);
         if(!equipById){
             res.status(400);
             throw new Error('Equipment not found.');
         } else{
-            res.status(200).json(equipById);
+            //res.status(200).json(equipById);
+            var updAllEquipbyID = await getCatName(equipById);        
+            res.status(200).json(updAllEquipbyID);
         }
     } else{
-        const allEquipments = await Equipment.find()
-        res.status(200).json(allEquipments);
+        const allEquipments = await Equipment.find();         
+        //res.status(200).json(allEquipments);
+
+        var updAllEquip = await getCatName(allEquipments);        
+        res.status(200).json(updAllEquip);
     }        
 })
 
