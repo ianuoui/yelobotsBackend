@@ -16,8 +16,10 @@ const enquirySchema = mongoose.Schema(
             required: [true, 'Phone is requried'],
         },
         duration: {
-            type: String,
-            required: [true, 'duration is requried'],
+            type: String,            
+        },
+        location: {
+            type: String,            
         },
         startDate: {
             type: Date,

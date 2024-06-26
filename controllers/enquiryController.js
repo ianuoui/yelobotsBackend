@@ -14,9 +14,9 @@ const createEnquiry = asyncHandler(async (req,res) => {
 
     const { name, email, phone, duration, message } = req.body
 
-    if (!name || !phone || !email || !duration || !message) { 
+    if (!name || !phone || !email || !message) { 
         res.status(400)
-        throw new Error('All fields are mandatory')
+        throw new Error('Name/Phone/Email/Message: fields are mandatory')
     }
 
     const newEnquiry = await Enquiry.create({
@@ -24,6 +24,7 @@ const createEnquiry = asyncHandler(async (req,res) => {
         phone: req.body.phone,
         email: req.body.email,
         duration: req.body.duration,
+        location: req.body.location,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
         message : req.body.message,         
