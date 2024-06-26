@@ -25,7 +25,7 @@ const createEnquiry = asyncHandler(async (req,res) => {
         email: req.body.email,
         duration: req.body.duration,
         startDate: req.body.startDate,
-        endtDate: req.body.endtDate,
+        endDate: req.body.endDate,
         message : req.body.message,         
         }
     );
