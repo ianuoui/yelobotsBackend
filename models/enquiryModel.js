@@ -22,7 +22,7 @@ const enquirySchema = mongoose.Schema(
         startDate: {
             type: Date,
         },
-        endtDate: {
+        endDate: {
             type: Date,
         },
         message: {

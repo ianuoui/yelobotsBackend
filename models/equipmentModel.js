@@ -17,7 +17,7 @@ const equipmentSchema = mongoose.Schema(
             type: String, 
         },
         images:[
-            {
+            { 
                 url: {type: String}, 
                 altText: {type: String},
                 _id : false 
